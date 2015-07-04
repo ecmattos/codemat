@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: CodeMat
+        psr4_prefix: CodeMat
+        src_path: app
