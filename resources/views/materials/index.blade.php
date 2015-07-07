@@ -4,6 +4,14 @@
 	<div class="container"> 
 		<h3>Materiais</h3>
 		<a href="{{ route('materials.create') }}" class="btn btn-default"><i class='glyphicon glyphicon-file'></i></a>
+		
+		{!! Form::open(['route' => 'materials', 'method' => 'GET', 'class' => 'form-inline pull-right', 'role' => 'search']) !!}
+  			<div class="form-group">
+    			{!! Form::text('search_cod_desc', null, ['class' => 'form-control', 'placeholder' => 'Código ou Descrição']) !!}
+  			</div>
+	  		<button type="submit" class="btn btn-primary">Buscar</button>
+		{!! Form::close() !!}
+
 		<table class="table"> 
 			<thead>
 				<tr>

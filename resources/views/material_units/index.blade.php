@@ -4,6 +4,14 @@
 	<div class="container"> 
 		<h3>Materiais: unidades</h3>
 		<a href="{{ route('material_units.create') }}" class="btn btn-default"><i class="glyphicon glyphicon-file"></i></a>
+		
+		{!! Form::open(['route' => 'material_units', 'method' => 'GET', 'class' => 'form-inline pull-right', 'role' => 'search']) !!}
+  			<div class="form-group">
+    			{!! Form::text('search_unit_desc', null, ['class' => 'form-control', 'placeholder' => 'Unidade e/ou Descrição']) !!}
+  			</div>
+	  		<button type="submit" class="btn btn-primary">Buscar</button>
+		{!! Form::close() !!}
+		
 		<table class="table"> 
 			<thead>
 				<tr>

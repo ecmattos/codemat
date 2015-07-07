@@ -2,7 +2,7 @@
 
 namespace CodeMat\Http\Controllers;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 use CodeMat\Http\Requests;
 use CodeMat\Http\Controllers\Controller;
@@ -22,9 +22,9 @@ class MaterialUnitsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $material_units = $this->material_unitModel->orderBy('mat_unid', 'asc')->get();
+        $material_units = $this->material_unitModel->searchUnitDesc($request->get('search_unit_desc'));
         #dd($material_units);
         return view('material_units.index', compact('material_units'));
         //

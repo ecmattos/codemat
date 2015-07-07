@@ -2,6 +2,8 @@
 
 namespace CodeMat\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use CodeMat\Http\Requests;
 use CodeMat\Http\Controllers\Controller;
 use CodeMat\Material;
@@ -24,12 +26,11 @@ class MaterialsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $materials = $this->materialModel->orderBy('mat_desc', 'asc')->get();
-        #dd($materials);
-        return view('materials.index', compact('materials'));
-        //
+       $materials = $this->materialModel->searchCodDesc($request->get('search_cod_desc'));
+       
+       return view('materials.index', compact('materials'));
     }
 
     /**
@@ -43,7 +44,7 @@ class MaterialsController extends Controller
         $material_types = $material_type->select('mat_tipo_desc', 'id')->orderBy('mat_tipo', 'asc')->lists('mat_tipo_desc', 'id');
         $material_groups = $material_group->select('mat_classe_desc', 'id')->orderBy('mat_classe_desc', 'asc')->lists('mat_classe_desc', 'id');
 
-        return view('materials.create', compact('material_units','material_types','material_groups'));
+        return view('materials.create', compact('material_units','material_units','material_types','material_groups'));
     }
 
     /**
@@ -54,7 +55,8 @@ class MaterialsController extends Controller
     public function store(Requests\MaterialRequest $request)
     {
         $input = $request->all();
-        $input['mat_vlr_ult_aquis'] = str_replace(",",".", str_replace(".","", $request->mat_vlr_ult_aquis));
+        $numberFormatter_ptBR2en = new \NumberFormatter('pt_BR',\NumberFormatter::DECIMAL);
+        $input['mat_vlr_ult_aquis'] = $numberFormatter_ptBR2en->parse($input['mat_vlr_ult_aquis']);
         $material = $this->materialModel->fill($input);
         $material->save();
 
@@ -97,7 +99,8 @@ class MaterialsController extends Controller
     public function update(Requests\MaterialRequest $request, $id)
     {
         $input = $request->all();
-        $input['mat_vlr_ult_aquis'] = str_replace(",",".", str_replace(".","", $request->mat_vlr_ult_aquis));
+        $numberFormatter_ptBR2en = new \NumberFormatter('pt_BR',\NumberFormatter::DECIMAL);
+        $input['mat_vlr_ult_aquis'] = $numberFormatter_ptBR2en->parse($input['mat_vlr_ult_aquis']);
         $material = $this->materialModel->find($id);
         $material->update($input);
 
