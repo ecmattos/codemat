@@ -28,7 +28,7 @@ class MaterialsController extends Controller
      */
     public function index(Request $request)
     {
-       $materials = $this->materialModel->searchCodDesc($request->get('search_cod_desc'));
+       $materials = $this->materialModel->ofSearchCodDesc($request->get('search_cod_desc'));
        
        return view('materials.index', compact('materials'));
     }

@@ -20,9 +20,8 @@ class MaterialUnit extends Model
      	return $this->hasMany('CodeMat\Material');   
     }
 
-    public function scopeSearchUnitDesc($query, $search_unit_desc)
+    public function scopeOfSearchUnitDesc($query, $search_unit_desc)
     {
-        #dd("scope: ".$search_unit_desc);
         return $query->where('mat_unid', 'LIKE', "%$search_unit_desc%")
                      ->orWhere('mat_unid_desc', 'LIKE', "%$search_unit_desc%")->get();
     }

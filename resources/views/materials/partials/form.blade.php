@@ -75,7 +75,7 @@
 	<div class="col-lg-2">
 		<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
-			{!! Form::text('mat_vlr_ult_aquis', number_format($material->mat_vlr_ult_aquis, '2',',','.'), ['class'=>'form-control']) !!}
+			{!! Form::text('mat_vlr_ult_aquis', null, ['class'=>'form-control']) !!}
 		</div>
 		{!! $errors->first('mat_vlr_ult_aquis', '<span class="help-block">:message</span>') !!}
 	</div>

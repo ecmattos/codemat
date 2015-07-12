@@ -24,7 +24,7 @@ class MaterialUnitsController extends Controller
      */
     public function index(Request $request)
     {
-        $material_units = $this->material_unitModel->searchUnitDesc($request->get('search_unit_desc'));
+        $material_units = $this->material_unitModel->ofSearchUnitDesc($request->get('search_unit_desc'));
         #dd($material_units);
         return view('material_units.index', compact('material_units'));
         //

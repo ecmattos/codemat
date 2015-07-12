@@ -44,7 +44,7 @@ class Material extends Model
         return $this->belongsTo('CodeMat\MaterialGroup');   
     }
 
-    public function scopeSearchCodDesc($query, $search_cod_desc)
+    public function scopeOfSearchCodDesc($query, $search_cod_desc)
     {
         if ($search_cod_desc != null)
             {

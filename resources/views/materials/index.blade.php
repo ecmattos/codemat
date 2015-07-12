@@ -19,18 +19,26 @@
 					<th>Código</th>
 					<th>Descrição</th>
 					<th>Unid</th>
+					<th>Tipo</th>
+					<th>Grupo</th>
+					<th>Situação</th>
 					<th class="text-right">R$ Unit</th>
+					<th>Estoque</th>
 					<th>#</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($materials as $material)
 			        <tr>
-			        	<td width='1%'><a href="{{ route('materials.edit', ['id'=>$material->id]) }}"><i class='glyphicon glyphicon-edit'></i></a></td>
+			        	<td width='1%'><a href="{{ route('materials.edit', ['id' => $material->id]) }}"><i class='glyphicon glyphicon-edit'></i></a></td>
 			        	<td width='24%'>{{ $material->mat_cod }}</td>
 			        	<td>{{ $material->mat_desc }}</td>
-			        	<td>{{ $material->material_unit->mat_unid }}</td>
+			        	<td>{{ $material->material_type->mat_tipo }}</td>
+			        	<td></td>
+			        	<td></td>
+			        	<td></td>
 			        	<td class="text-right">{{ number_format($material->mat_vlr_ult_aquis, '2',',','.') }}</td>
+			        	<td></td>
 			        	<td width='1%'><a href="{{ route('materials.destroy', ['id'=>$material->id]) }}"><i class='glyphicon glyphicon-trash'></i></a></td>
 			        </tr>
 			    @endforeach
