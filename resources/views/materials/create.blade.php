@@ -1,14 +1,21 @@
 @extends('app')
 
 @section('content')
-	<div class="container"> 
-		<h3>Materiais - Inclusão</h3>
-		<a href="{{ route('materials') }}" class="btn btn-default"><i class='glyphicon glyphicon-list'></i></a>
+	<div class="container">
+		
+		@include('common.errors')
+	
+		<div class="page-header">
+			<div class="row">
+		        <h3 class="pull-left">Materiais - Inclusão</h3>
+		    </div>
+		</div>
 
-		{!! Form::open(['url'=>'materials', 'class'=>'form-horizontal', 'role'=>'form']) !!}
-			
-			@include('materials.partials.form')
-			
-		{!! Form::close() !!}
+	    {!! Form::open(['route' => 'materials.store', 'class'=>'form-horizontal', 'role'=>'form']) !!}
+
+	        @include('materials.form')
+
+	    {!! Form::close() !!}
+
 	</div>
 @endsection

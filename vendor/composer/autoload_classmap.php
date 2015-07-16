@@ -6,16 +6,22 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCityServiceUnitsTable' => $baseDir . '/database/migrations/2015_07_15_235250_add_city_service_units_table.php',
     'AddMatGroupMaterials' => $baseDir . '/database/migrations/2015_07_02_193300_add_mat_group_materials.php',
     'AddMatStatusMaterials' => $baseDir . '/database/migrations/2015_07_02_192815_add_mat_status_materials.php',
     'AddMatTypeMaterials' => $baseDir . '/database/migrations/2015_07_02_192801_add_mat_type_materials.php',
     'AddMatUnitMaterials' => $baseDir . '/database/migrations/2015_06_29_181413_add_mat_unit_materials.php',
+    'AddUfCitiesTable' => $baseDir . '/database/migrations/2015_07_15_202935_add_uf_cities_table.php',
+    'CreateCitiesTable' => $baseDir . '/database/migrations/2015_07_15_201954_create_cities_table.php',
     'CreateMaterialGroupsTable' => $baseDir . '/database/migrations/2015_07_02_193212_create_material_groups_table.php',
     'CreateMaterialStatusesTable' => $baseDir . '/database/migrations/2015_07_02_191935_create_material_statuses_table.php',
     'CreateMaterialTypesTable' => $baseDir . '/database/migrations/2015_07_02_191915_create_material_types_table.php',
     'CreateMaterialUnitsTable' => $baseDir . '/database/migrations/2015_06_28_035538_create_material_units_table.php',
     'CreateMaterialsTable' => $baseDir . '/database/migrations/2015_06_29_175112_create_materials_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateServiceUnitsTable' => $baseDir . '/database/migrations/2015_07_15_224709_create_service_units_table.php',
+    'CreateSessionTable' => $baseDir . '/database/migrations/2015_07_15_235449_create_session_table.php',
+    'CreateStatesTable' => $baseDir . '/database/migrations/2015_07_15_201515_create_states_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

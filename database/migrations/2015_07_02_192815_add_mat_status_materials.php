@@ -13,7 +13,7 @@ class AddMatStatusMaterials extends Migration
     public function up()
     {
         Schema::table('materials', function (Blueprint $table) {
-            $table->integer('mat_sit_id')->unsigned()->default(1);
+            $table->integer('mat_sit_id')->unsigned()->default(1)->after('mat_tipo_id');
             $table->foreign('mat_sit_id')->references('id')->on('material_statuses');
         });
     }

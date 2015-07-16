@@ -10,7 +10,7 @@ use CodeMat\Material;
 use CodeMat\MaterialUnit;
 use CodeMat\MaterialType;
 use CodeMat\MaterialGroup;
-//use CodeMat\MaterialStatus;
+use CodeMat\MaterialStatus;
 
 class MaterialsController extends Controller
 {
@@ -29,7 +29,8 @@ class MaterialsController extends Controller
     public function index(Request $request)
     {
        $materials = $this->materialModel->ofSearchCodDesc($request->get('search_cod_desc'));
-       
+       ##dd($materials);
+
        return view('materials.index', compact('materials'));
     }
 
@@ -38,13 +39,14 @@ class MaterialsController extends Controller
      *
      * @return Response
      */
-    public function create(MaterialUnit $material_unit, MaterialType $material_type, MaterialGroup $material_group)
+    public function create(MaterialUnit $material_unit, MaterialType $material_type, MaterialGroup $material_group, MaterialStatus $material_status)
     { 
         $material_units = $material_unit->select('mat_unid', 'id')->orderBy('mat_unid', 'asc')->lists('mat_unid', 'id');
         $material_types = $material_type->select('mat_tipo_desc', 'id')->orderBy('mat_tipo', 'asc')->lists('mat_tipo_desc', 'id');
         $material_groups = $material_group->select('mat_classe_desc', 'id')->orderBy('mat_classe_desc', 'asc')->lists('mat_classe_desc', 'id');
+        $material_statuses = $material_status->select('mat_sit_desc', 'id')->orderBy('mat_sit_desc', 'asc')->lists('mat_sit_desc', 'id');
 
-        return view('materials.create', compact('material_units','material_units','material_types','material_groups'));
+        return view('materials.create', compact('material_units','material_units','material_types','material_groups','material_statuses'));
     }
 
     /**
@@ -71,7 +73,9 @@ class MaterialsController extends Controller
      */
     public function show($id)
     {
-        //
+        $material = $this->materialModel->find($id);
+
+        return view('materials.show', compact('material'));
     }
 
     /**
@@ -80,14 +84,15 @@ class MaterialsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id, MaterialUnit $material_unit, MaterialType $material_type, MaterialGroup $material_group)
+    public function edit($id, MaterialUnit $material_unit, MaterialType $material_type, MaterialGroup $material_group, MaterialStatus $material_status)
     {
         $material_units = $material_unit->select('mat_unid', 'id')->orderBy('mat_unid', 'asc')->lists('mat_unid', 'id');
         $material_types = $material_type->select('mat_tipo_desc', 'id')->orderBy('mat_tipo', 'asc')->lists('mat_tipo_desc', 'id');
         $material_groups = $material_group->select('mat_classe_desc', 'id')->orderBy('mat_classe_desc', 'asc')->lists('mat_classe_desc', 'id');
         $material = $this->materialModel->find($id);
-        
-        return view('materials.edit', compact('material','material_units','material_types','material_groups'));
+        $material_statuses = $material_status->select('mat_sit_desc', 'id')->orderBy('mat_sit_desc', 'asc')->lists('mat_sit_desc', 'id');
+
+        return view('materials.edit', compact('material','material_units','material_types','material_groups','material_statuses'));
     }
 
     /**

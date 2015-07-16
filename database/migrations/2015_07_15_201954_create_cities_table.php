@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaterialUnitsTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,11 @@ class CreateMaterialUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('material_units', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            
-            $table->string('mat_unid', 5);
-            $table->string('mat_unid_desc', 30);
-            
+
+            $table->string('cidade_nome', 70);
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +29,6 @@ class CreateMaterialUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('material_units');
+        Schema::drop('cities');
     }
 }

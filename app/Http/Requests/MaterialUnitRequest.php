@@ -33,13 +33,13 @@ class MaterialUnitRequest extends Request
     public function messages()
     {
         return [
-            'mat_unid.max' => 'MÁXIMO 5 caracteres.',
-            'mat_unid.required' => 'Obrigatório.',
-            'mat_unid.unique' => 'Indisponível.',
+            'mat_unid.max' => '<b>Unidade</b> >> MÁXIMO 5 caracteres.',
+            'mat_unid.required' => '<b>Unidade</b> >> Preenchimento obrigatório.',
+            'mat_unid.unique' => '<b>Unidade</b> >> Indisponível.',
            
-            'mat_unid_desc.max' => 'MÁXIMO 30 caracteres.',
-            'mat_unid_desc.required' => 'Obrigatório.',
-            'mat_unid_desc.unique' => 'Indisponível.'
+            'mat_unid_desc.max' => '<b>Descrição</b> >> MÁXIMO 30 caracteres.',
+            'mat_unid_desc.required' => '<b>Descrição</b> >> Preenchimento obrigatório.',
+            'mat_unid_desc.unique' => '<b>Descrição</b> >> Indisponível.'
         ];
     }
 }

@@ -26,22 +26,22 @@ class Material extends Model
 
     public function material_unit()
     {
-        return $this->belongsTo('CodeMat\MaterialUnit');   
+        return $this->belongsTo('CodeMat\MaterialUnit','mat_unid_id'); 
     }
 
     public function material_type()
     {
-        return $this->belongsTo('CodeMat\MaterialType');   
+        return $this->belongsTo('CodeMat\MaterialType','mat_tipo_id');  
     }
 
     public function material_status()
     {
-        return $this->belongsTo('CodeMat\MaterialStatus');   
+        return $this->belongsTo('CodeMat\MaterialStatus','mat_sit_id');   
     }
 
     public function material_group()
     {
-        return $this->belongsTo('CodeMat\MaterialGroup');   
+        return $this->belongsTo('CodeMat\MaterialGroup','mat_classe_id');   
     }
 
     public function scopeOfSearchCodDesc($query, $search_cod_desc)

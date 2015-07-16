@@ -14,7 +14,7 @@ class AddMatUnitMaterials extends Migration
     {
         Schema::table('materials', function (Blueprint $table) {
             //
-            $table->integer('mat_unid_id')->unsigned()->default(1);
+            $table->integer('mat_unid_id')->unsigned()->default(1)->after('mat_desc');
             $table->foreign('mat_unid_id')->references('id')->on('material_units');
         });
     }

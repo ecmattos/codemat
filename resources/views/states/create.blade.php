@@ -7,13 +7,13 @@
 	
 		<div class="page-header">
 			<div class="row">
-		        <h3 class="pull-left">Materiais - Unidades: Inclusão</h3>
+		        <h3 class="pull-left">Estados: Inclusão</h3>
 		    </div>
 		</div>
 
-	    {!! Form::open(['route' => 'material_units.store', 'class'=>'form-horizontal', 'role'=>'form']) !!}
+	    {!! Form::open(['route' => 'states.store', 'class'=>'form-horizontal', 'role'=>'form']) !!}
 
-	        @include('material_units.form')
+	        @include('states.form')
 
 	    {!! Form::close() !!}
 

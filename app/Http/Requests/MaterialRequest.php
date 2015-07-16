@@ -34,15 +34,15 @@ class MaterialRequest extends Request
     public function messages()
     {
         return [
-            'mat_cod.max' => 'MÁXIMO 10 caracteres.',
-            'mat_cod.required' => 'Obrigatório.',
-            'mat_cod.unique' => 'Indisponível.',
+            'mat_cod.max' => '<b>Código</b> >> MÁXIMO 10 caracteres.',
+            'mat_cod.required' => '<b>Código</b> >> Preenchimento obrigatório.',
+            'mat_cod.unique' => '<b>Código</b> >> Indisponível.',
            
             'mat_desc.max' => 'MÁXIMO 150 caracteres.',
-            'mat_desc.required' => 'Obrigatório.',
-            'mat_desc.unique' => 'Indisponível.',
+            'mat_desc.required' => '<b>Descrição</b> >> Preenchimento obrigatório.',
+            'mat_desc.unique' => '<b>Descrição</b> >> Indisponível.',
 
-            'mat_vlr_ult_aquis.required' => 'Obrigatório.'
+            'mat_vlr_ult_aquis.required' => '<b>Valor Unitário (R$)</b> >> Preenchimento obrigatório.'
         ];
     }
 }
